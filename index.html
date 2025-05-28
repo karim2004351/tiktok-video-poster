@@ -1,24 +1,22 @@
-document.getElementById('postBtn').addEventListener('click', () => {
-  const link = document.getElementById('videoLink').value.trim();
-  const results = document.getElementById('results');
-  results.innerHTML = '';
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>نشر رابط فيديو TikTok</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+  input, button { padding: 10px; margin: 10px 0; width: 100%; font-size: 16px; }
+  #results { margin-top: 20px; }
+  .site { background: #fff; padding: 10px; margin-bottom: 5px; border-radius: 5px; }
+</style>
+</head>
+<body>
+<h2>نشر رابط فيديو TikTok</h2>
+<input type="url" id="videoLink" placeholder="أدخل رابط الفيديو هنا" />
+<button id="postBtn">نشر الآن</button>
+<div id="results"></div>
 
-  if (!link) {
-    alert('الرجاء إدخال رابط فيديو صالح.');
-    return;
-  }
-
-  fetch('sites.json')
-    .then(response => response.json())
-    .then(sites => {
-      sites.forEach(site => {
-        const div = document.createElement('div');
-        div.className = 'site';
-        div.textContent = `تم نشر الرابط على: ${site}`;
-        results.appendChild(div);
-      });
-    })
-    .catch(() => {
-      alert('فشل تحميل قائمة المواقع.');
-    });
-});
+<script src="app.js"></script>
+</body>
+</html>
